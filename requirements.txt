@@ -1,0 +1,7 @@
+spyder-kernels
+numpy
+matplotlib
+pandas
+black
+scikit-learn
+seaborn
