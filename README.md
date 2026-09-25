@@ -1,13 +1,13 @@
-# ml_env
-<!-- https://github.com/ldan-dev/ml_env -->
+# Practicas de Machine Learning
+<!-- https://github.com/ldan-dev/ml_team -->
 
 <br />
 <div align="center">
-  <a href="https://github.com/ldan-dev/ml_env">
+  <a href="https://github.com/ldan-dev/ml_team">
     <img src="https://github.com/ldan-dev/assets/blob/main/logo_ug.png?raw=true" alt="Logo UG" width="250" >
   </a>
 
-  <h3 align="center">ml_env</h3>
+  <h3 align="center">Practicas de Machine Learning</h3>
   <p align="center">
      Licenciatura en Ingeniería de Datos e Inteligencia Artificial (IS75LI0801)
     <br />
@@ -47,7 +47,7 @@
 # Clone the repository
 To clone this repository, use the following command:
 ```bash
-git clone https://github.com/ldan-dev/ml_env.git
+git clone https://github.com/ldan-dev/ml_team.git
 ```
 
 # Environment Setup
@@ -106,11 +106,13 @@ uv pip install -r requirements.txt
 ```
 
 # Contributing
+> **Note:** Never commit or push directly to the `main` branch. Always create a new branch for every new feature or bugfix.
+
 If you want to contribute to this project, follow these steps:
 
 1. Clone the repository locally:
 ```bash
-git clone https://github.com/ldan-dev/ml_env.git
+git clone https://github.com/ldan-dev/ml_team.git
 ```
 
 2. Create a new branch for your feature or bugfix:
@@ -134,6 +136,12 @@ git push origin feature/your-feature-name
 ```
 
 6. Open your web browser, go to the repository on GitHub, and create a **Pull Request**.
+
+7. Once your Pull Request is merged, return to the `main` branch and pull the latest changes to keep your local repository up to date:
+```bash
+git checkout main
+git pull origin main
+```
 
 # Use of the repository
 This repository is for educational purposes only. Feel free to use and modify the code, but please give appropriate credit to the original author.
