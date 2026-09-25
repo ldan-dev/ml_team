@@ -1,0 +1,4 @@
+Partición por figura original: 14 originales de entrenamiento y 6 de prueba por clase. Cinco transformaciones por original.
+Total 1000 imágenes: 700 entrenamiento, 300 prueba.
+KNN píxeles 73/300 = 24.33%; SVM píxeles 76/300 = 25.33%.
+KNN Hu 228/300 = 76.00%; SVM Hu 216/300 = 72.00%.
