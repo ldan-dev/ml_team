@@ -5,3 +5,4 @@ pandas
 black
 scikit-learn
 seaborn
+opencv-python
