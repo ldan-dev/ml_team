@@ -1,3 +1,7 @@
+# Entender el problema
+
+
+
 ### **1. Comprensión del Problema y del Dataset**
 
 * **Dataset:** *Banknote Authentication* (1,372 observaciones, 4 características continuas y variable objetivo binaria).
@@ -87,5 +91,84 @@ El proyecto exige cuatro componentes de entrega:
 3. **Código Reproducible:** Script de Python o Jupyter Notebook organizado con comentarios, libre de fuga de datos y ejecutable de principio a fin.
 4. **Archivo de Resultados Experimentales:** Archivo estructurado (ej. `.csv`) con las mediciones por pliegue obtenidas en la experimentación.
 
---
+-----
 
+>  _
+
+# Dividir el proyecto
+>  _
+
+La clave está en **no dividir por tipo de entregables** (donde uno solo programa, otro solo hace diapositivas y otro solo escribe). En su lugar, el proyecto se estructura por **ejes metodológicos y experimentales en parejas**, combinando sesiones colectivas de integración.
+
+De esta manera, todos programan, todos analizan resultados y todos participan en la redacción y presentación del trabajo.
+
+---
+
+### 1. Esquema de Organización: Trabajar en 3 Parejas Específicas
+
+Se dividen las tareas del proyecto en 3 ejes técnicos. Cada pareja es responsable del código y de la sección correspondiente del artículo LNCS para su eje:
+
+```
+                      PROYECTO COMPLETO (6 Integrantes)
+                                     │
+    ┌────────────────────────────────┼────────────────────────────────┐
+    ▼                                ▼                                ▼
+PAREJA A (2 pers.)               PAREJA B (2 pers.)               PAREJA C (2 pers.)
+Eje: Datos y Modelo 1           Eje: Modelo 2                   Eje: Evaluación y Estadística
+- EDA y Preprocesamiento        - Modelo Complejo/No Lineal     - Métricas y Curvas ROC
+- Modelo Lineal/Base            - Ajuste de Hiperparámetros     - Prueba t de Student y Errores
+- Redacción: Intro y Datos      - Redacción: Marco Modelo 2     - Redacción: Resultados y Discusión
+```
+
+---
+
+### 2. Matriz de Responsabilidades Cruzadas
+
+#### **Pareja A: Eje de Datos y Modelo Base (ej. Regresión Logística / SVM Lineal)**
+* **Código:**
+  * Análisis exploratorio de datos (EDA): histogramas de las 4 características de los billetes, matriz de correlación.
+  * Creación de la tubería (*pipeline*) de preparación: separación de pliegues (5-Fold Stratified CV) y escalado (`StandardScaler`) asegurando no tener fuga de información (*data leakage*).
+  * Entrenamiento y evaluación del Modelo 1 (Regresión Logística / SVM Lineal).
+* **Redacción del Artículo LNCS:**
+  * Sección **Introducción** (planteamiento del problema y contexto de la autenticación de billetes).
+  * Sección **Metodología: Descripción de los datos y preprocesamiento**.
+  * Sección **Marco Teórico: Modelo 1**.
+
+#### **Pareja B: Eje de Modelo Complejo (ej. Random Forest / Árbol de Decisión)**
+* **Código:**
+  * Implementación y entrenamiento del Modelo 2 (Random Forest / Árbol de Decisión) bajo las mismas particiones de validación cruzada.
+  * Búsqueda y ajuste de hiperparámetros (profundidad, número de estimadores) mediante validación interna sobre los datos de entrenamiento.
+  * Extracción de importancia de variables o reglas de decisión del árbol.
+* **Redacción del Artículo LNCS:**
+  * Sección **Marco Teórico: Modelo 2**.
+  * Sección **Metodología: Configuración experimental e hiperparámetros**.
+
+#### **Pareja C: Eje de Métricas, Pruebas Estadísticas y Análisis de Errores**
+* **Código:**
+  * Script para generación de curvas ROC, cálculo de AUC y matrices de confusión comparativas.
+  * Implementación de la prueba de hipótesis estadística emparejada (ej. *Paired Student's t-test* o *5x2cv*) para calcular el \\(p\\)-valor de diferencia entre ambos modelos.
+  * Identificación de casos misclasificados (falsos positivos vs. falsos negativos en billetes).
+* **Redacción del Artículo LNCS:**
+  * Sección **Marco Teórico: Métricas y Validación Cruzada**.
+  * Sección **Resultados y Análisis Estadístico** (tablas comparativas, reporte del \\(p\\)-valor).
+  * Sección **Discusión de Errores y Conclusiones**.
+
+---
+
+### 3. Dinámica para Evitar el "Efecto Frankenstein"
+
+Para garantizar coherencia narrativa, fluidez en el código y que todos dominen el tema completo, se ejecutan **4 Hitos de Integración Colectiva**:
+
+1. **Hito 1: Pregunta de Investigación y Protocolo (Reunión inicial de 1 hr):**
+   * Los 6 definen juntos la pregunta de investigación, la regla de sembrado aleatorio (`random_state=42`) y la métrica principal basada en el costo del error (ej. minimizar falsos positivos/negativos).
+2. **Hito 2: Integración del Código en un Único Notebook / Script:**
+   * La Pareja C junta los bloques de código creados por A y B en una sola tubería continua y ejecutable sin errores.
+3. **Hito 3: Edición Cruzada del Artículo (Peer Review Interno):**
+   * **Revisión en bucle:** La Pareja A lee y edita la sección escrita por B; B revisa la de C; y C revisa la de A.
+   * Se asigna un **Editor de Estilo Rotativo** (un integrante de cada pareja) para uniformar el tono del texto, revisar las citas bibliográficas y formatear las tablas bajo la plantilla Springer LNCS.
+4. **Hito 4: Ensayos Colectivos de la Presentación:**
+   * Las diapositivas se reparten por temas, no por entregables.
+   * Se realizan ensayos de preguntas y respuestas cruzadas: si al equipo le preguntan sobre el código del Modelo 2 o la prueba \\(t\\), cualquier integrante de la Pareja A o C debe estar en capacidad de responder.
+
+
+---
