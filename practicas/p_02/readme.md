@@ -1,6 +1,6 @@
 # Entender el problema
 
-
+> Más info del dataset: https://archive.ics.uci.edu/dataset/267/banknote+authentication 
 
 ### **1. Comprensión del Problema y del Dataset**
 
