@@ -1,0 +1,9 @@
+Base derivada de MPEG-7 CE-Shape-1 Part B.
+Fuente original: https://dabi.temple.edu/external/shape/MPEG7/dataset.html
+Clases: Bone, bottle, brick, butterfly, fork, Heart, guitar, octopus, tree, watch.
+20 siluetas originales por clase; 5 variaciones aleatorias por silueta.
+Se recorta al objeto, escala el lado mayor a 64 en lienzo de 128, rota 0–360°, escala 0.65–1.10, traslada ±15 píxeles, y reduce a máscara binaria de 64×64.
+Semilla generación: 20260925. Partición estratificada 70/30 por original, semilla 42. Nunca dividir aleatoriamente variantes.
+Comparar 4096 píxeles 0/1 contra siete momentos de Hu. Hu usa signo × -log10(|momento|), piso 1e-30, y StandardScaler entrenado solo en entrenamiento.
+Modelos: KNeighborsClassifier() y SVC(), valores por defecto.
+El generador requiere el archivo original MPEG7dataset.zip en el mismo directorio; las imágenes transformadas ya se incluyen aquí.
