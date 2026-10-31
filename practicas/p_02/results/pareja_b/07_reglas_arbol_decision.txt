@@ -1,0 +1,22 @@
+|--- variance <= 0.77
+|   |--- skewness <= 5.16
+|   |   |--- variance <= 0.32
+|   |   |   |--- weights: [20.00, 393.00] class: 1
+|   |   |--- variance >  0.32
+|   |   |   |--- weights: [22.00, 29.00] class: 1
+|   |--- skewness >  5.16
+|   |   |--- variance <= -3.43
+|   |   |   |--- weights: [1.00, 31.00] class: 1
+|   |   |--- variance >  -3.43
+|   |   |   |--- weights: [96.00, 1.00] class: 0
+|--- variance >  0.77
+|   |--- kurtosis <= -4.46
+|   |   |--- variance <= 3.30
+|   |   |   |--- weights: [0.00, 16.00] class: 1
+|   |   |--- variance >  3.30
+|   |   |   |--- weights: [8.00, 0.00] class: 0
+|   |--- kurtosis >  -4.46
+|   |   |--- variance <= 1.74
+|   |   |   |--- weights: [80.00, 16.00] class: 0
+|   |   |--- variance >  1.74
+|   |   |   |--- weights: [382.00, 2.00] class: 0
