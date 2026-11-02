@@ -1,0 +1,16 @@
+PRUEBA DE HIPÓTESIS — Recall₁ (clase 1, falsificado)
+============================================================
+N pares            : 10
+SVM Rec₁ media±std : 0.9949 ± 0.0099
+RF  Rec₁ media±std : 1.0000 ± 0.0000
+Diferencia media   : -0.0051
+Mediana diferencia : +0.0000
+
+H0: mediana de las diferencias pareadas (SVM - RF) = 0
+H1: mediana de las diferencias pareadas (SVM - RF) ≠ 0
+alpha = 0.05
+
+Shapiro-Wilk : W=0.6043, p=0.0001
+Paired t-test: t=-1.6293, p=0.137681
+Cohen's d    : -0.5152
+Wilcoxon     : W=0.0000, p=0.250000

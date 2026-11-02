@@ -1,0 +1,284 @@
+\documentclass[conference]{IEEEtran}
+
+% Codificación y configuración general
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-nodecimaldot]{babel}
+
+% Paquetes habituales para artículos IEEE
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+% TikZ para el diagrama a bloques
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric,positioning,arrows.meta}
+
+\def\UrlBreaks{\do/\do-\do_}
+
+\title{Experimentación Aprendizaje Supervisado: Autentificación de Billetes }
+
+\author{
+	\IEEEauthorblockN{Leonardo Daniel Aviña Neri}
+	\IEEEauthorblockA{
+		\texttt{ld.avinaneri@ugto.mx}
+	}
+	\and
+	\IEEEauthorblockN{Diana Laura Garcia Zavala}
+	\IEEEauthorblockA{
+		\texttt{dl.garcia.zavala@ugto.mx}
+	}
+	\and
+	\IEEEauthorblockN{Jonathan Omar Villafaña Razo}
+	\IEEEauthorblockA{
+		\texttt{jo.villafanarazo@ugto.mx}
+	}
+	\and
+	\IEEEauthorblockN{Alejandro Reynoso Flores}
+	\IEEEauthorblockA{
+		\texttt{a.reynosoflores@ugto.mx}
+	}
+	\and
+	\IEEEauthorblockN{Ademar Antonio De Leon Vazquez}
+	\IEEEauthorblockA{
+	\texttt{aa.deleonvazquez@ugto.mx
+	}
+	}
+	\and
+	\IEEEauthorblockN{Emmanuel Vargas Cisneros}
+	\IEEEauthorblockA{
+		\texttt{e.vargascisneros@ugto.mx}
+	}
+}
+
+\begin{document}
+	\maketitle
+	
+	\begin{abstract}
+		% [CONTENIDO DE ABSTRACT OMITIDO]
+	\end{abstract}
+	
+	\begin{IEEEkeywords}
+		
+	\end{IEEEkeywords}
+	
+	\section{Introducción}
+	% [TEXTO DE INTRODUCCIÓN OMITIDO]
+	Hoy en día, el dinero representa uno de los activos o bienes aceptados de manera general como medio de pago para el intercambio de bienes o servicios, liquidar deudas personales o externas y medir el valor de los objetos. Esto no se limita al efectivo, ya que constituye un recurso disponible tanto en su forma física mediante billetes y monedas como digital, a través de los movimientos en la banca electrónica y el uso de criptomonedas como el Bitcoin. Su valor monetario se sustenta en una tasa regulada por cada país para su validación. 
+	
+	Sin embargo, desde la aparición del papel moneda, se han presentado situaciones donde diversas estrategias ilícitas para manipular o defraudar a las instituciones financieras permiten la circulación de piezas, lo que genera pérdidas reales de dinero para miles de usuarios y bancos. El empleo de tintas similares a las oficiales, la alteración de objetos para hacerlos pasar por piezas de alta denominación y la vulneración de códigos en cajas de seguridad figuran entre los problemas más comunes a los que se enfrenta el sector financiero global.
+	En México se ha estimado que los billetes de 500 y 200 pesos son los más afectados por esta problemática. Esto evidencia cómo incluso las personas trabajadoras y honestas pueden convertirse en víctimas; la falta de conocimiento sobre el tema o el afán de obtener billetes de alta denominación facilitan las estafas a los comerciantes, quienes no solo pierden un ingreso, sino que suelen cargar con las consecuencias de estos delitos.
+	\\\\
+	Afortunadamente, el órgano institucional encargado de evaluar y ejecutar las políticas monetarias, el Banco de México proporciona información y guías de consulta para resolver tales incidentes. Entre las conclusiones destacan la necesidad de evaluar factores como la textura de la superficie del billete y la identificación de elementos visuales, símbolos y hologramas. Otras estrategias auxiliares incluyen el uso de bolígrafos con reactivos especiales que cambian de color al entrar en contacto con tintas no autorizadas y el empleo de dispositivos con luz negra para verificar la fluorescencia.
+	
+	El presente proyecto corresponde al análisis de una base de datos conformada por las propiedades matemáticas y estadísticas de billetes reales y falsos. Los registros, además de estar completos, corresponden a evaluaciones de billetes individuales.\\
+	
+	\begin{itemize}
+		\item \textit{Pregunta de investigación }: \textbf{¿Cuál de los dos modelos de clasificación la regresión logística como modelo lineal base o el modelo no lineal identifica mejor los billetes falsos, manteniendo un protocolo de evaluación estratificado, reproducible y libre de fuga de información?}\\
+		\item \textit{Objetivo}: Determinar si dicha identificación automatizada es viable o si, por el contrario, se requiere un mayor volumen de información. El estudio busca dar respuesta a la interrogante y abrir la posibilidad de perfeccionar el modelo mediante la recopilación de datos y el análisis de más casos, con el fin de evaluar su vigencia a lo largo del tiempo y contribuir a la disminución de la tasa de fraudes en transacciones monetarias.\\
+		\item\textit{ Alcance}: El estudio comprende el análisis exploratorio y computacional de los registros individuales contenidos en la base de datos disponible. Su propósito es evaluar la viabilidad matemática de la clasificación, sin llegar a implementar un sistema en tiempo real orientado a usuarios comerciales en esta fase inicial.
+	\end{itemize}
+	
+	
+	
+	\section{Marco Teórico}
+	% [SUBSECCIONES, IMÁGENES Y TEXTO DE METODOLOGÍA OMITIDOS]
+	\subsection{Modelo 1: Regresión Logística}
+	
+	La regresión logística es un modelo discriminativo lineal basado en probabilidades, seleccionado como el primer clasificador para este espacio continuo de 4 dimensiones\cite{aws_logistic_regression}. Aunque comparte una estructura matemática similar a la regresión lineal, la regresión logística modela directamente la probabilidad posterior de la variable objetivo dado el vector de características predictoras $X$.
+	
+	Dada una observación $x = [x_1, x_2, x_3, x_4]^T$, correspondiente a las cuatro características extraídas, el modelo calcula un valor score $z$ definido como la combinación lineal de los datos y un vector de coeficientes $\beta$ (pesos y sesgo):
+	
+	\begin{equation}
+		z = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \beta_3 x_3 + \beta_4 x_4
+	\end{equation}
+	
+	Para mapear este valor arbitrario $z \in \mathbb{R}$ a un rango acotado de probabilidad $P(Y=1 | X) \in [0, 1]$, se aplica la función de activación sigmoide:
+	
+	\begin{equation}
+		\sigma(z) = \frac{1}{1 + e^{-z}}
+	\end{equation}
+	
+	Por ende, la probabilidad estimada $\hat{y}$ de que un billete sea clasificado como falso ($y=1$) toma la forma:
+	
+	\begin{equation}
+		\hat{y} = P(y=1 | x) = \frac{1}{1 + e^{-(\beta_0 + \sum_{j=1}^{4} \beta_j x_j)}}
+	\end{equation}
+	
+	Los parámetros del modelo $\beta$ se estiman minimizando la pérdida de Entropía Cruzada Binaria (\textit{Binary Cross-Entropy Loss}), equivalente a maximizar la función de log-verosimilitud del sistema sobre las observaciones de entrenamiento:
+	
+	\begin{equation}
+		J(\beta) = -\frac{1}{m} \sum_{i=1}^{m} \left[ y^{(i)} \log(\hat{y}^{(i)}) + (1 - y^{(i)}) \log(1 - \hat{y}^{(i)}) \right]
+	\end{equation}
+	
+	Donde $m$ representa el total de observaciones y $y^{(i)}$ es la etiqueta binaria real. Al no existir una solución analítica cerrada para minimizar esta función, se optimiza mediante métodos numéricos como L-BFGS\cite{aws_logistic_regression}.
+	
+	Para asignar una clase discreta, se evalúa la regla de decisión comparando la probabilidad estimada frente a un umbral $\tau$ (usualmente $0.5$):
+	\begin{itemize}
+		\item Si $\sigma(z) \ge \tau$, el billete se clasifica como falso.
+		\item Si $\sigma(z) < \tau$, el billete se clasifica como genuino.
+	\end{itemize}
+	
+	Este modelo lineal es idóneo para establecer una línea base y analizar el espacio de características de 4 dimensiones, permitiendo además evaluar el impacto de los errores asimétricos Falsos Positivos vs. Falsos Negativos a través de métricas como el \textbf{Recall}
+	\\	\\	
+	El Recall es la métrica con la que se comparan los dos modelos, y se selecciona porque la existencia del falso negativo es el error operacional más riesgoso, ya que se puede permitir que un billete falso pase como genuino produciendo que la tasa de error se dispare a medida que esos casos incrementan. Mientras que si el valor es más alto es porque detecta mejor las proporciones de las falsificaciones. 
+	
+	Lo cual hace que el resto de métricas pasen a segundo plano pues también deben colocar los casos posteriores como el conteo de genuinos así como los erróneamente asignados.
+	
+    \subsection{Modelo 2: Random Forest}
+    \label{sec:rf}
+    
+    El segundo clasificador es un bosque aleatorio \cite{breiman2001random}. Para una observación $x\in\mathbb{R}^4$, el modelo construye $B$ árboles de decisión. Cada árbol $T_b$ se ajusta sobre una muestra bootstrap del entrenamiento: se extraen $n$ observaciones con reemplazo, de modo que una fracción aproximada de $e^{-1}\approx 0.368$ queda fuera de la muestra de ese árbol. En cada nodo no se evalúan las $p=4$ variables, sino un subconjunto aleatorio de tamaño $m$; con \texttt{max\_features='sqrt'} y $p=4$, se consideran $m=2$ predictores por corte. Esa doble aleatoriedad —bootstrap y selección de variables— reduce la correlación entre árboles y, con ella, la varianza del promedio \cite{hastie2009elements}. La implementación utilizada es la de scikit-learn \cite{pedregosa2011scikit}.
+    
+   Cada árbol produce una probabilidad $\hat{P}_b(y=1\mid x)$ para la clase falsa. El bosque promedia esas probabilidades y decide con umbral $0.5$:
+    \begin{align}
+    	\hat{P}_B(y=1\mid x) &= \frac{1}{B}\sum_{b=1}^{B}\hat{P}_b(y=1\mid x), \nonumber \\
+    	\hat{y} &= \mathbb{1}\left\{\hat{P}_B(y=1\mid x)\ge 0.5\right\}.
+    	\label{eq:rf-prob}
+    \end{align}
+    Aquí $y=1$ denota billete falso, igual que en el modelo lineal.
+    
+    Los cortes son de la forma $x_j\le t$ y se eligen maximizando la reducción de la impureza de Gini. Para un nodo $t$ con proporciones $p_{t0}$ y $p_{t1}$ de cada clase,
+    \begin{equation}
+    	G(t)=1-\sum_{k=0}^{1}p_{tk}^{2}.
+    	\label{eq:gini}
+    \end{equation}
+    La reducción de impureza de un corte en la variable $j$ con umbral $t_0$ es
+    \begin{equation}
+    	\Delta G(t,j,t_0)=G(t)-\frac{n_L}{n_t}G(t_L)-\frac{n_R}{n_t}G(t_R),
+    	\label{eq:delta-gini}
+    \end{equation}
+    donde $n_t$ es el número de observaciones del nodo y $n_L,n_R$ las de sus hijos. La contribución bruta de una variable al bosque suma, sobre todos los árboles, las reducciones $\Delta G$ de los nodos donde participa, ponderadas por el tamaño del nodo:
+    \begin{equation}
+    	\tilde{I}_j=\frac{1}{B}\sum_{b=1}^{B}\sum_{\substack{t\in T_b\\ v(t)=j}}
+    	\frac{n_t}{n}\,\Delta G(t,j,t_0),
+    	\label{eq:rf-importance-raw}
+    \end{equation}
+    donde $v(t)$ es la variable utilizada en el corte del nodo $t$.
+    La importancia que reporta scikit-learn se obtiene normalizando la contribución de cada árbol y promediando entre árboles, lo que equivale en esencia a normalizar $\tilde{I}_j$ de modo que las $p$ variables reparten la unidad:
+    \begin{equation}
+    	I_j=\frac{\tilde{I}_j}{\sum_{k=1}^{p}\tilde{I}_k},
+    	\qquad \sum_{j=1}^{p}I_j=1.
+    	\label{eq:rf-importance}
+    \end{equation}
+    
+    Esta medida describe qué variables usa el bosque, no una relación causal. Con predictores correlacionados, la importancia puede repartirse entre ellos; en este conjunto, \texttt{skewness} y \texttt{kurtosis} tienen una correlación aproximada de $-0.79$, por lo que sus valores deben leerse en conjunto.
+    
+    No se aplica \texttt{StandardScaler}. Los árboles no comparan distancias ni optimizan gradientes: solo ordenan los valores de cada variable para buscar umbrales. Una transformación monótona como $z=(x-\mu)/\sigma$ conserva el orden y, por tanto, los mismos cortes posibles. En un espacio de cuatro variables continuas, el bosque puede aproximar fronteras no lineales e interacciones sin imponer una forma funcional; el precio es que el modelo deja de ser una ecuación única y pasa a ser un conjunto de reglas.
+    
+	\section{Metodología \& Preparación}
+	El conjunto de datos utilizado en este estudio corresponde a \textit{Banknote Authentication}, una base de datos diseñada para la evaluación de modelos de clasificación en tareas de detección de fraude en papel moneda. Las observaciones provinieron originalmente de la digitalización de imágenes de billetes tanto genuinos como falsificados mediante cámaras fotográficas industriales de alta resolución. Con el propósito de reducir la dimensionalidad de las imágenes crudas y extraer descriptores cuantitativos significativos sobre la textura y los patrones del papel, se aplicaron transformaciones continuas de \textit{wavelets} (ondículas).
+	
+	El análisis exploratorio inicial permitió caracterizar la estructura del dataset, el cual está compuesto por un total de 1,372 observaciones y 5 variables, las cuales se detallan a continuación:
+	
+	\begin{itemize}
+		\item \textbf{Variables predictoras (continuas):}
+		\begin{itemize}
+			\item \textbf{variance}: Varianza de la imagen transformada por \textbf{wavelet}, que mide la dispersión del contraste.
+			\item \textbf{skewness}: Asimetría de la imagen transformada por \textbf{wavelet}, que cuantifica la falta de simetría en la distribución de tonos.
+			\item \textbf{kurtosis}: Curtosis de la imagen transformada por \textbf{wavelet}, que evalúa la presencia de valores extremos en la textura.
+			\item \textbf{entropy}: Entropía de la imagen original, la cual refleja el grado de aleatoriedad o información presente en el billete.
+		\end{itemize}
+		
+	\end{itemize}
+	
+	
+	Donde la variable objetivo es binaria por lo que solo posee 2 resultados posibles, representando los estados de que sea un billete genuino o si el billete es falso representado por el nombre de \texttt{is\_fake}.
+	
+	La auditoría de calidad de datos reveló los siguientes hallazgos estructurales clave:
+	
+	\begin{itemize}
+		\item \textbf{Integridad:} No se detectaron valores nulos, faltantes, infinitos ni no numéricos en ninguna de las variables analizadas.
+		\item \textbf{Duplicados:} Se identificaron 24 registros duplicados, los cuales se decidió conservar formalmente para preservar la distribución empírica original de los datos de entrenamiento.
+		\item \textbf{Balance de clases:} La variable objetivo muestra una distribución equilibrada, compuesta por \textbf{762 billetes genuinos (55.54\%)} y \textbf{610 billetes falsos (44.46\%)}. Este equilibrio previene posibles sesgos en los clasificadores derivados de un desbalance severo de clases.
+	\end{itemize}
+	
+	Para garantizar una evaluación rigurosa y prevenir la contaminación del conjunto de prueba durante el ciclo de modelado, el proceso de preparación de los datos se estructuró siguiendo criterios metodológicos estrictos orientados a la validez del experimento.
+	
+	En primer lugar, dada la naturaleza de las cuatro variables predictoras continuas extraídas por wavelets, se observó una heterogeneidad considerable en sus rangos y magnitudes. Puesto que algoritmos como la regresión logística dependen directamente de métodos de optimización basados en gradientes y en la magnitud del espacio vectorial, las diferencias de escala pueden provocar distorsiones en la convergencia del modelo o asignar un peso desproporcionado a variables con mayor varianza. Para corregir este comportamiento en la regresión logística, resulta indispensable aplicar un procedimiento de estandarización mediante \texttt{StandardScaler} sobre la totalidad de los descriptores numéricos \cite{datacamp_zscore}; el Random Forest, en cambio, no requiere escalado (Sección~\ref{sec:rf}). Esta transformación ajusta la escala de cada característica continua para centrar su media en cero y fijar su desviación estándar en la unidad:
+	
+	\begin{equation}
+		z = \frac{x - \mu}{\sigma}
+	\end{equation}
+	
+	En segundo lugar, con el fin de cumplir estrictamente la regla contra la fuga de datos, se garantizó la independencia absoluta entre los datos de ajuste y los de validación. Para lograrlo, el cálculo de la media ($\mu$) y de la desviación estándar ($\sigma$) mediante la función \texttt{scaler.fit()} se ejecutó de manera exclusiva sobre las observaciones del conjunto de entrenamiento correspondiente a cada pliegue de validación. Posteriormente, los parámetros obtenidos de dicho entrenamiento se aplicaron mediante la función \texttt{scaler.transform()} tanto al subconjunto de entrenamiento como al subconjunto de prueba externo. Bajo este esquema, el modelo nunca tiene acceso a estadísticas globales del conjunto de evaluación durante la fase de ajuste.
+	
+	Finalmente, para asegurar la total reproducibilidad del experimento en cualquier entorno computacional, se fijó de manera global la semilla aleatoria en 42 en cada una de las particiones de datos, pliegues de validación cruzada e inicialización de los clasificadores.
+	% [SUBSECCIONES, IMÁGENES Y TEXTO DE RESULTADOS OMITIDOS]
+
+    \subsection{Configuración experimental e hiperparámetros}
+    \label{sec:rf-metodologia}
+    
+    Se parte del conjunto descrito en la sección anterior \cite{uci_banknote}. La configuración del Random Forest se mantuvo separada de la preparación de datos y no incluyó escalado. Para que la estimación sea reproducible y comparable con el resto del estudio, se fijó \texttt{random\_state=42}, una división 80/20 estratificada y un \texttt{StratifiedKFold} de 5 pliegues con \texttt{shuffle=True} sobre $X_{\text{train}}$. El conjunto $X_{\text{test}}$ no se usó en esta fase.
+    
+    Para cada pliegue externo, la selección de hiperparámetros se hizo con un bucle interno de 3 pliegues estratificados sobre el entrenamiento de ese pliegue. Se usó \texttt{GridSearchCV} con 48 combinaciones, producto de $2\times4\times3\times2$ valores (Tabla~\ref{tab:rf-grid}). La métrica de selección fue el recall medio de la clase falsa. Cuando varias combinaciones empataron en recall, se prefirió el mayor F1 de la clase falsa; si el empate persistió, se eligió la configuración más simple: menos árboles y menor profundidad. Este criterio se implementó en una función de refit que ordena las combinaciones con esos tres niveles.
+    
+    \begin{table}[t]
+    	\centering
+    	\caption{Rejilla de hiperparámetros del Random Forest.}
+    	\label{tab:rf-grid}
+    	\begin{tabular}{@{}p{0.32\linewidth}p{0.22\linewidth}p{0.40\linewidth}@{}}
+    		\toprule
+    		Hiperparámetro & Valores & Qué controla \\
+    		\midrule
+    		\texttt{n\_estimators} & 100, 300 & Número de árboles $B$; más árboles estabilizan el promedio. \\
+    		\texttt{max\_depth} & 3, 5, 8, \texttt{None} & Profundidad máxima; limita la complejidad de cada árbol. \\
+    		\texttt{min\_}\allowbreak\texttt{samples\_}\allowbreak\texttt{leaf} & 1, 3, 5 & Mínimo de observaciones por hoja; valores altos suavizan la frontera. \\
+    		\texttt{max\_}\allowbreak\texttt{features} & \texttt{'sqrt'}, \texttt{None} & Variables evaluadas por corte; \texttt{'sqrt'} usa 2 de 4 y \texttt{None} usa las 4. \\
+    		\bottomrule
+    	\end{tabular}
+    \end{table}
+    
+    La validación es anidada porque el bucle interno solo ve el entrenamiento del pliegue externo. El pliegue externo de validación no participa en la elección de hiperparámetros. Si la búsqueda se hiciera sobre los mismos datos que luego se reportan, la estimación quedaría sesgada por selección de modelo \cite{cawley2010overfitting,varma2006bias}. Al mantener separados ambos niveles, el desempeño externo estima cómo se comportaría el procedimiento completo —búsqueda incluida— ante datos no vistos. Después de recorrer los cinco pliegues, se repitió la búsqueda interna sobre todo $X_{\text{train}}$ y se ajustó el modelo final con los mejores hiperparámetros; ese modelo es el que se entrega para la evaluación externa, sin haber visto $X_{\text{test}}$.
+	\section{Experimentación}
+	
+	\section{Resultados \& Análisis Estadístico}
+	
+	\section{Discusión y Conclusiones}
+	
+	\begin{thebibliography}{00}
+    	\bibitem{aws_logistic_regression}
+    	Amazon Web Services (AWS). 
+    	\textit{¿Qué es la regresión logística?}. 
+    	Disponible en: \url{https://aws.amazon.com/es/what-is/logistic-regression/} (Consultado en 2026).
+    	
+    	\bibitem{breiman2001random}
+    	L. Breiman, ``Random forests,'' \textit{Machine Learning}, vol. 45, no. 1, pp. 5--32, 2001, doi: 10.1023/A:1010933404324.
+    	
+    	\bibitem{hastie2009elements}
+    	T. Hastie, R. Tibshirani, and J. Friedman, \textit{The Elements of Statistical Learning: Data Mining, Inference, and Prediction}, 2nd ed. New York, NY, USA: Springer, 2009.
+    	
+    	\bibitem{pedregosa2011scikit}
+    	F. Pedregosa \textit{et al.}, ``Scikit-learn: Machine learning in Python,'' \textit{J. Mach. Learn. Res.}, vol. 12, no. 85, pp. 2825--2830, 2011.
+    	
+    	\bibitem{datacamp_zscore}
+    	DataCamp. 
+    	\textit{¿Qué es la puntuación Z (Z-score) y cómo calcularla?}. 
+    	Disponible en: \url{https://www.datacamp.com/es/tutorial/z-score} (Consultado en 2026).
+    	
+    	\bibitem{uci_banknote}
+    	V. Lohweg, ``Banknote Authentication,'' UCI Machine Learning Repository, 2012, doi: 10.24432/C55P57. [Online]. Available: \url{https://archive.ics.uci.edu/dataset/267/banknote+authentication}
+    	
+    	\bibitem{cawley2010overfitting}
+    	G. C. Cawley and N. L. C. Talbot, ``On over-fitting in model selection and subsequent selection bias in performance evaluation,'' \textit{J. Mach. Learn. Res.}, vol. 11, no. 70, pp. 2079--2107, 2010.
+    	
+    	\bibitem{varma2006bias}
+    	S. Varma and R. Simon, ``Bias in error estimation when using cross-validation for model selection,'' \textit{BMC Bioinformatics}, vol. 7, art. 91, 2006, doi: 10.1186/1471-2105-7-91.
+    \end{thebibliography}
+	
+	\clearpage
+	\onecolumn
+	\appendices
+	\section{Código Fuente: \texttt{main.py}}
+	\label{app:codigo}
+	
+	% [CÓDIGO FUENTE DE MAIN.PY OMITIDO]
+	
+\end{document}

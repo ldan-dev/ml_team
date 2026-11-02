@@ -1,0 +1,3 @@
+entrenamiento/<clase>/*.png: 70 imágenes por clase (14 originales × 5 variantes).
+prueba/<clase>/*.png: 30 imágenes por clase (6 originales × 5 variantes).
+La partición se realiza por silueta original, no por variante.

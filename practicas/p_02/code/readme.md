@@ -1,0 +1,1 @@
+> Nota importante: Los codigos "deep" son sugerencias que dió deepseek, no tomar como base o trabajo ya "hecho", solo como una inspiración o tomar ideas
