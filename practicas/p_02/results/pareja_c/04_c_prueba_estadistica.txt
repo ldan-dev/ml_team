@@ -1,0 +1,21 @@
+PRUEBA DE HIPÓTESIS EMPAREJADA — recall de la clase falsa (clase 1), 5 pliegues
+==============================================================================
+Medida: recall de falsos por pliegue; diferencia d_i = recall_LR,i - recall_RF,i (pliegues idénticos para ambos modelos)
+H0: mu_d = 0 (el recall esperado de ambos modelos es el mismo)
+H1: mu_d != 0 (prueba bilateral)
+alpha = 0.05
+
+Recall por pliegue  LR: [1.0, 0.9898, 1.0, 0.9897, 1.0]
+Recall por pliegue  RF: [1.0, 1.0, 0.9898, 1.0, 0.9897]
+Diferencias d_i       : [0.0, -0.0102, 0.0102, -0.0103, 0.0103]
+Diferencia media      : +0.000000   (desv. est. de d = 0.010257, k = 5)
+
+Supuestos: pareo (verificado); normalidad de d -> Shapiro-Wilk W = 0.8248, p = 0.1270 (n = 5, potencia muy baja);
+independencia entre pliegues: no se cumple del todo (entrenamientos traslapados) -> la prueba principal es la t con corrección de Nadeau y Bengio; la t convencional se reporta solo como referencia.
+
+PRUEBA PRINCIPAL - t corregido (N-B): t(4) = +0.0000, p = 1.0000, IC95% de mu_d = [-0.0191, +0.0191]  (n_prueba/n_entrenamiento = 0.250)
+Referencia - t pareado convencional (no corrige la dependencia entre pliegues): t(4) = +0.0000, p = 1.0000, IC95% de mu_d = [-0.0127, +0.0127]
+Decisión (alpha = 0.05): NO se rechaza H0 (prueba principal); NO se rechaza H0 (referencia)
+
+Interpretación: no rechazar H0 no demuestra equivalencia; solo indica que estos datos no permiten detectar una diferencia en el recall.
+Billetes (validación cruzada, 1,097 predicciones): LR FN = 2, FP = 15; RF FN = 2, FP = 10.

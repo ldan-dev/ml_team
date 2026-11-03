@@ -1,0 +1,39 @@
+conjunto,modelo,fold,index,y_true,y_pred,proba_fake,tipo_error,variance,skewness,kurtosis,entropy,copia_en_entrenamiento
+Validación cruzada (OOF),Regresión logística,1.0,728,0,1,0.6344185051847799,FP (genuino rechazado),0.37984,0.70975,0.75716,-0.44441,False
+Validación cruzada (OOF),Regresión logística,1.0,691,0,1,0.593009663063644,FP (genuino rechazado),0.5706,-0.0248,1.2421,-0.5621,True
+Validación cruzada (OOF),Regresión logística,1.0,320,0,1,0.7728875630715362,FP (genuino rechazado),0.5195,-3.2633,3.0895,-0.9849,True
+Validación cruzada (OOF),Regresión logística,1.0,300,0,1,0.7426142214076876,FP (genuino rechazado),0.3292,-4.4552,4.5718,-0.9888,False
+Validación cruzada (OOF),Regresión logística,1.0,352,0,1,0.7426142214076876,FP (genuino rechazado),0.3292,-4.4552,4.5718,-0.9888,False
+Validación cruzada (OOF),Regresión logística,2.0,1101,1,0,0.43594965400117186,FN (falso aceptado),2.1943,4.5503,-4.976,-2.7254,False
+Validación cruzada (OOF),Regresión logística,2.0,671,0,1,0.7069695841800199,FP (genuino rechazado),0.51947,-3.2633,3.0895,-0.98492,False
+Validación cruzada (OOF),Regresión logística,2.0,107,0,1,0.6698786556725203,FP (genuino rechazado),-1.8584,7.886,-1.6643,-1.8384,True
+Validación cruzada (OOF),Regresión logística,3.0,145,0,1,0.7352892682186231,FP (genuino rechazado),0.5195,-3.2633,3.0895,-0.9849,True
+Validación cruzada (OOF),Regresión logística,3.0,404,0,1,0.614773209415516,FP (genuino rechazado),0.3798,0.7098,0.7572,-0.4444,True
+Validación cruzada (OOF),Regresión logística,3.0,248,0,1,0.614773209415516,FP (genuino rechazado),0.3798,0.7098,0.7572,-0.4444,True
+Validación cruzada (OOF),Regresión logística,4.0,918,1,0,0.36718395637429346,FN (falso aceptado),2.3917,4.5565,-4.9888,-2.8987,False
+Validación cruzada (OOF),Regresión logística,4.0,195,0,1,0.6517860205227317,FP (genuino rechazado),-1.8584,7.886,-1.6643,-1.8384,True
+Validación cruzada (OOF),Regresión logística,4.0,668,0,1,0.5602033422674663,FP (genuino rechazado),0.5706,-0.024841,1.2421,-0.56208,False
+Validación cruzada (OOF),Regresión logística,4.0,436,0,1,0.6148603725934587,FP (genuino rechazado),0.3798,0.7098,0.7572,-0.4444,True
+Validación cruzada (OOF),Regresión logística,4.0,351,0,1,0.7251539663865442,FP (genuino rechazado),0.5195,-3.2633,3.0895,-0.9849,True
+Validación cruzada (OOF),Regresión logística,5.0,226,0,1,0.5417787298551736,FP (genuino rechazado),0.5706,-0.0248,1.2421,-0.5621,True
+Validación cruzada (OOF),Random Forest,1.0,349,0,1,0.7099033816425121,FP (genuino rechazado),-4.2859,8.5234,3.1392,-0.91639,False
+Validación cruzada (OOF),Random Forest,1.0,326,0,1,0.5625723398984269,FP (genuino rechazado),-0.16108,-6.4624,8.3573,-1.5216,False
+Validación cruzada (OOF),Random Forest,3.0,172,0,1,0.7057069805762682,FP (genuino rechazado),-1.6952,1.0657,8.8294,0.94955,False
+Validación cruzada (OOF),Random Forest,3.0,374,0,1,0.7195397622292833,FP (genuino rechazado),-1.5055,0.070346,6.8681,-0.50648,False
+Validación cruzada (OOF),Random Forest,3.0,910,1,0,0.4389173471053782,FN (falso aceptado),0.55298,-3.4619,1.7048,1.1008,False
+Validación cruzada (OOF),Random Forest,3.0,30,0,1,0.6590128766739107,FP (genuino rechazado),-0.24811,-0.17797,4.9068,0.15429,False
+Validación cruzada (OOF),Random Forest,3.0,478,0,1,0.693164346086489,FP (genuino rechazado),-1.7781,0.8546,7.1303,0.027572,False
+Validación cruzada (OOF),Random Forest,3.0,721,0,1,0.697284846489869,FP (genuino rechazado),-0.45062,-1.3678,7.0858,-0.40303,False
+Validación cruzada (OOF),Random Forest,5.0,729,0,1,0.7534616679375481,FP (genuino rechazado),-0.95923,0.091039,6.2204,-1.4828,False
+Validación cruzada (OOF),Random Forest,5.0,224,0,1,0.6509444444444444,FP (genuino rechazado),-0.36038,4.1158,3.1143,-0.37199,False
+Validación cruzada (OOF),Random Forest,5.0,1075,1,0,0.49500438318562684,FN (falso aceptado),0.37637,-0.82358,0.78543,0.74524,False
+Validación cruzada (OOF),Random Forest,5.0,593,0,1,0.6422081963620424,FP (genuino rechazado),-2.7914,1.7734,6.7756,-0.39915,False
+Prueba,Regresión logística,,476,0,1,0.6075155939741683,FP (genuino rechazado),0.3798,0.7098,0.7572,-0.4444,True
+Prueba,Regresión logística,,315,0,1,0.6910924413451882,FP (genuino rechazado),0.3292,-4.4552,4.5718,-0.9888,True
+Prueba,Regresión logística,,170,0,1,0.5540873490202738,FP (genuino rechazado),0.5706,-0.0248,1.2421,-0.5621,True
+Prueba,Regresión logística,,498,0,1,0.5540873490202738,FP (genuino rechazado),0.5706,-0.0248,1.2421,-0.5621,True
+Prueba,Regresión logística,,345,0,1,0.633790858416535,FP (genuino rechazado),-1.8584,7.886,-1.6643,-1.8384,True
+Prueba,Regresión logística,,716,0,1,0.7349467484886572,FP (genuino rechazado),0.5195,-3.2633,3.0895,-0.9849,True
+Prueba,Regresión logística,,21,0,1,0.6910924413451882,FP (genuino rechazado),0.3292,-4.4552,4.5718,-0.9888,True
+Prueba,Regresión logística,,4,0,1,0.6910784087087849,FP (genuino rechazado),0.32924,-4.4552,4.5718,-0.9888,False
+Prueba,Random Forest,,95,0,1,0.7133333333333334,FP (genuino rechazado),-0.64472,-4.6062,8.347,-2.7099,False

@@ -1,0 +1,7 @@
+métrica,Regresión logística,Random Forest
+recall_fake,0.9959 ± 0.0056,0.9959 ± 0.0056
+precision_fake,0.9703 ± 0.0153,0.9801 ± 0.0209
+f1_fake,0.9829 ± 0.0084,0.9879 ± 0.0131
+accuracy,0.9845 ± 0.0076,0.9890 ± 0.0119
+specificity,0.9754 ± 0.0130,0.9835 ± 0.0175
+roc_auc,0.9997 ± 0.0002,0.9998 ± 0.0002
