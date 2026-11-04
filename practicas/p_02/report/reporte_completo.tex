@@ -81,7 +81,7 @@
 	El presente proyecto corresponde al análisis de una base de datos conformada por las propiedades matemáticas y estadísticas de billetes reales y falsos. Los registros, además de estar completos, corresponden a evaluaciones de billetes individuales.\\
 	
 	\begin{itemize}
-		\item \textit{Pregunta de investigación }: \textbf{¿Cuál de los dos modelos de clasificación la regresión logística como modelo lineal base o el modelo no lineal identifica mejor los billetes falsos, manteniendo un protocolo de evaluación estratificado, reproducible y libre de fuga de información?}\\
+		\item \textit{Pregunta de investigación}: \textbf{¿Cuál de los dos modelos de clasificación —la regresión logística como modelo lineal base y Random Forest como modelo no lineal— identifica mejor los billetes falsos, manteniendo un protocolo de evaluación estratificado, reproducible y libre de fuga de información?}\\
 		\item \textit{Objetivo}: Determinar si dicha identificación automatizada es viable o si, por el contrario, se requiere un mayor volumen de información. El estudio busca dar respuesta a la interrogante y abrir la posibilidad de perfeccionar el modelo mediante la recopilación de datos y el análisis de más casos, con el fin de evaluar su vigencia a lo largo del tiempo y contribuir a la disminución de la tasa de fraudes en transacciones monetarias.\\
 		\item\textit{ Alcance}: El estudio comprende el análisis exploratorio y computacional de los registros individuales contenidos en la base de datos disponible. Su propósito es evaluar la viabilidad matemática de la clasificación, sin llegar a implementar un sistema en tiempo real orientado a usuarios comerciales en esta fase inicial.
 	\end{itemize}
@@ -372,14 +372,14 @@ La validación cruzada de la regresión logística solo devuelve las métricas d
     
 	\begin{figure}[t]
 		\centering
-		\includegraphics[width=\columnwidth]{Metricas_confusion_comparativa.jpeg}
+		\includegraphics[width=\columnwidth]{plots/11_matrices_confusion_comparativas.png}
 		\caption{Matrices de confusión de ambos modelos en validación cruzada (fila superior) y en el conjunto de prueba (fila inferior). La esquina inferior izquierda de cada matriz son los $FN$ (falsificaciones aceptadas) y la superior derecha los $FP$ (genuinos rechazados).}
 		\label{fig:confusion}
 	\end{figure}
 	
 	\begin{figure*}[t]
 		\centering
-		\includegraphics[width=0.78\textwidth]{plots12_curvas_roc_comparativas.jpeg}
+		\includegraphics[width=0.78\textwidth]{plots/12_curvas_roc_comparativas.png}
 		\caption{Curvas ROC y AUC de ambos modelos en validación cruzada (columna izquierda) y en prueba (columna derecha); la fila inferior amplía la esquina superior izquierda. El punto marcado es el umbral $\tau=0.5$. En validación cruzada la curva agrupa las probabilidades OOF de cinco modelos distintos, por lo que es una aproximación.}
 		\label{fig:roc}
 	\end{figure*}
@@ -575,9 +575,15 @@ N. Puri, P. Gupta, P. Agarwal, S. Verma, and B. Krishnamurthy, ``MAGIX: Model ag
 	\clearpage
 	\onecolumn
 	\appendices
-	\section{Código Fuente: \texttt{main.py}}
+	\section{Código Fuente}
 	\label{app:codigo}
 	
-	% [CÓDIGO FUENTE DE MAIN.PY OMITIDO]
+	El flujo reproducible se ejecuta con el archivo
+	\texttt{code/main\_final.py}, que ejecuta en orden los notebooks
+	\texttt{main.ipynb}, \texttt{main\_b.ipynb} y \texttt{main\_c.ipynb}.
+	Los notebooks generan las figuras en \texttt{report/plots/} y los
+	resultados experimentales en \texttt{results/pareja\_b/} y
+	\texttt{results/pareja\_c/}. El archivo \texttt{repot.tex} es un borrador
+	incompleto y no forma parte del documento final.
 	
 \end{document}
