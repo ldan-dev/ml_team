@@ -1,0 +1,112 @@
+\relax 
+\providecommand\babel@aux[2]{}
+\@nameuse{bbl@beforestart}
+\catcode `"\active 
+\catcode `<\active 
+\catcode `>\active 
+\@nameuse{es@quoting}
+\babel@aux{spanish}{}
+\@writefile{toc}{\contentsline {section}{\numberline {I}Introducción}{1}{}\protected@file@percent }
+\citation{aws_logistic_regression}
+\citation{aws_logistic_regression}
+\citation{breiman2001random}
+\citation{hastie2009elements}
+\citation{pedregosa2011scikit}
+\@writefile{toc}{\contentsline {section}{\numberline {II}Marco Teórico}{2}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-A}}Modelo 1: Regresión Logística}{2}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-B}}Modelo 2: Random Forest}{2}{}\protected@file@percent }
+\newlabel{sec:rf}{{\mbox  {II-B}}{2}}
+\newlabel{eq:rf-prob}{{5}{2}}
+\newlabel{eq:gini}{{6}{2}}
+\newlabel{eq:delta-gini}{{7}{2}}
+\newlabel{eq:rf-importance-raw}{{8}{2}}
+\citation{fawcett2006roc}
+\citation{hanley1982auc}
+\citation{kohavi1995study}
+\citation{nadeau2003inference}
+\citation{uci_banknote}
+\citation{glock2009feature}
+\newlabel{eq:rf-importance}{{9}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-C}}Métricas de evaluación}{3}{}\protected@file@percent }
+\newlabel{sec:metricas}{{\mbox  {II-C}}{3}}
+\newlabel{eq:recall}{{10}{3}}
+\newlabel{eq:espec}{{11}{3}}
+\newlabel{eq:prec}{{12}{3}}
+\newlabel{eq:f1}{{13}{3}}
+\newlabel{eq:acc}{{14}{3}}
+\newlabel{eq:roc}{{15}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-D}}Validación cruzada estratificada}{3}{}\protected@file@percent }
+\newlabel{sec:cv}{{\mbox  {II-D}}{3}}
+\newlabel{eq:cv-resumen}{{16}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-E}}Trabajos relacionados}{3}{}\protected@file@percent }
+\newlabel{sec:relacionados}{{\mbox  {II-E}}{3}}
+\citation{kumar2022fake}
+\citation{easa2023fake}
+\citation{aboulyazeed2026enhanced}
+\citation{puri2017magix}
+\citation{nadeau2003inference}
+\citation{datacamp_zscore}
+\@writefile{toc}{\contentsline {section}{\numberline {III}Metodología \& Preparación}{4}{}\protected@file@percent }
+\citation{uci_banknote}
+\citation{cawley2010overfitting,varma2006bias}
+\@writefile{lot}{\contentsline {table}{\numberline {I}{\ignorespaces Rejilla de hiperparámetros del Random Forest.}}{5}{}\protected@file@percent }
+\newlabel{tab:rf-grid}{{I}{5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-A}}Configuración experimental e hiperparámetros}{5}{}\protected@file@percent }
+\newlabel{sec:rf-metodologia}{{\mbox  {III-A}}{5}}
+\@writefile{toc}{\contentsline {section}{\numberline {IV}Experimentación}{5}{}\protected@file@percent }
+\newlabel{sec:exp}{{IV}{5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-A}}Protocolo común a los dos modelos}{5}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-B}}Verificación de las predicciones por pliegue}{5}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-C}}Evaluación en el conjunto de prueba}{5}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-D}}Procedimiento estadístico y de análisis de errores}{5}{}\protected@file@percent }
+\citation{nadeau2003inference}
+\@writefile{lot}{\contentsline {table}{\numberline {II}{\ignorespaces Recall de la clase falsa por pliegue y diferencia $d_i=R^{LR}_i-R^{RF}_i$ (mismos billetes de validación).}}{6}{}\protected@file@percent }
+\newlabel{tab:recall-folds}{{II}{6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-E}}Software y reproducibilidad}{6}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {V}Resultados \& Análisis Estadístico}{6}{}\protected@file@percent }
+\newlabel{sec:resultados}{{V}{6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-A}}Validación cruzada}{6}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-B}}Conjunto de prueba}{6}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {III}{\ignorespaces Métricas con $\tau =0.5$ en validación cruzada (OOF agrupado, 1,097 billetes) y en prueba (275 billetes). LR: regresión logística; RF: Random Forest.}}{6}{}\protected@file@percent }
+\newlabel{tab:metricas}{{III}{6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Matrices de confusión de ambos modelos en validación cruzada (fila superior) y en el conjunto de prueba (fila inferior). La esquina inferior izquierda de cada matriz son los $FN$ (falsificaciones aceptadas) y la superior derecha los $FP$ (genuinos rechazados).}}{6}{}\protected@file@percent }
+\newlabel{fig:confusion}{{1}{6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-C}}Prueba de hipótesis emparejada}{6}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Curvas ROC y AUC de ambos modelos en validación cruzada (columna izquierda) y en prueba (columna derecha); la fila inferior amplía la esquina superior izquierda. El punto marcado es el umbral $\tau =0.5$. En validación cruzada la curva agrupa las probabilidades OOF de cinco modelos distintos, por lo que es una aproximación.}}{7}{}\protected@file@percent }
+\newlabel{fig:roc}{{2}{7}}
+\newlabel{eq:t-nb}{{19}{7}}
+\newlabel{eq:t-pareada}{{20}{7}}
+\@writefile{lot}{\contentsline {table}{\numberline {IV}{\ignorespaces Resultado de la prueba sobre el recall ($\alpha =0.05$, 4 grados de libertad).}}{7}{}\protected@file@percent }
+\newlabel{tab:prueba}{{IV}{7}}
+\@writefile{lot}{\contentsline {table}{\numberline {V}{\ignorespaces Falsos negativos en validación cruzada (falsificaciones aceptadas). $\hat  P$: probabilidad estimada de ser falso.}}{8}{}\protected@file@percent }
+\newlabel{tab:fn}{{V}{8}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-D}}Billetes mal clasificados}{8}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-E}}Efecto de los registros duplicados}{8}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {VI}{\ignorespaces Análisis de sensibilidad: métricas con todas las filas y sin las filas que tienen un registro idéntico en el entrenamiento. El recall no cambia en ningún caso.}}{8}{}\protected@file@percent }
+\newlabel{tab:duplicados}{{VI}{8}}
+\@writefile{toc}{\contentsline {section}{\numberline {VI}Discusión y Conclusiones}{8}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-A}}Respuesta a la pregunta de investigación}{8}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-B}}Tipos de error}{8}{}\protected@file@percent }
+\bibcite{aws_logistic_regression}{1}
+\bibcite{breiman2001random}{2}
+\bibcite{hastie2009elements}{3}
+\bibcite{pedregosa2011scikit}{4}
+\bibcite{datacamp_zscore}{5}
+\bibcite{uci_banknote}{6}
+\bibcite{cawley2010overfitting}{7}
+\bibcite{varma2006bias}{8}
+\bibcite{fawcett2006roc}{9}
+\bibcite{hanley1982auc}{10}
+\bibcite{kohavi1995study}{11}
+\bibcite{nadeau2003inference}{12}
+\bibcite{glock2009feature}{13}
+\bibcite{kumar2022fake}{14}
+\bibcite{easa2023fake}{15}
+\bibcite{aboulyazeed2026enhanced}{16}
+\bibcite{puri2017magix}{17}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-C}}Limitaciones}{9}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-D}}Conclusiones}{9}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{Referencias}{9}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{Ap\'{e}ndice\nobreakspace  A: Código Fuente}{11}{}\protected@file@percent }
+\newlabel{app:codigo}{{A}{11}}
+\gdef \@abspage@last{11}
