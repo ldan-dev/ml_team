@@ -1,0 +1,13 @@
+{
+  "selected_family": "base",
+  "selected_k": 7,
+  "n_features": 64,
+  "selection_metric": "mean validation macro F1",
+  "selection_tolerance": 0.005,
+  "tie_breaking": [
+    "same dimension for all base models",
+    "lower sample SD of validation macro F1",
+    "lower k"
+  ],
+  "test_used_for_selection": false
+}
