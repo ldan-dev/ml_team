@@ -1,0 +1,16 @@
+{
+  "selected_family": "PCA+KNN",
+  "selected_variance_target": 0.9,
+  "selected_k": 5,
+  "mean_retained_components": 21.0,
+  "mean_validation_macro_f1": 0.9837355307670481,
+  "std_validation_macro_f1": 0.005177804139094836,
+  "selection_tolerance": 0.005,
+  "tie_breaking": [
+    "lower mean number of components retained across folds",
+    "lower sample SD of validation macro F1",
+    "lower k",
+    "lower variance target for an exact remaining tie"
+  ],
+  "test_used_for_selection": false
+}
